@@ -1,0 +1,78 @@
+@(products: List[models.Product])
+<!-- Pass page title and content {html between braces} to the main view -->
+@main("Products") {
+  <!-- HTML content for the index view -->
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    
+        <title>Products</title>
+        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("images/favicon.png")">
+        <script src="@routes.Assets.versioned("javascripts/hello.js")" type="text/javascript"></script>
+    </head>
+<body>
+  <div class="row">
+      <div class="col-sm-2">
+        <div class="well">
+          <h4>Games</h4>
+        </div>
+      </div>
+      <div class="col-sm-10">
+	@if(flash.containsKey("success")) {
+		<div class="alert alert-success">
+		@flash.get("success")
+		</div>
+	}
+        <table class="table table-bordered table-hover table-condensed">
+          <thead>
+          <!-- The header row-->
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Stock</th>
+            <th>Price</th>
+          </tr>
+          </thead>
+          <tbody>
+            <!-- Product row(s) -->
+	   @for(p <- products) {
+            <tr>
+             <td class="numeric">@p.getId</td>
+	     <td>@p.getName</td>
+ 	     <td class="numeric">@p.getStock</td>
+  	     <td class="numeric">&euro; @("%.2f".format(p.getPrice))</td>
+
+	<td>
+		<a href="@routes.HomeController.updateProduct(p.getId)" class="btn-xs btn-danger">
+		<span class="glyphicon glyphicon-pencil">Update</span></a>
+	</td>
+
+
+		<td>
+			<a href="@routes.HomeController.deleteProduct(p.getId)" class="btn-xs btn-danger" onclick="return confirmDel();">
+			<span class="glyphicon glyphicon-trash"><buttonclass="btn-xs btn-danger">delete</button></span>
+			</a>
+		</td>
+            </tr>
+	}
+          </tbody>
+        </table>
+		<p>
+		<a href="@routes.HomeController.addProduct()">
+		<button class="btn btn-primary">Add a Product</button>
+		</a>
+		</p>
+      </div>
+  </div>
+
+    </body>
+	</html>
+  <!-- End of content for main -->
+	<script>
+		function confirmDel() {
+			return confirm('Are you sure?');
+	}
+	</script>
+}
