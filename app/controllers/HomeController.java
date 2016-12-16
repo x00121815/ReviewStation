@@ -48,6 +48,10 @@ public class HomeController extends Controller {
     public Result watchdogs() {
         return ok(watchdogs.render());
     }
+	
+    public Result purchase(){
+	return ok(purchase.render());
+    }
 
     public Result products() {
 	List<Product> productsList = Product.findAll();

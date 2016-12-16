@@ -32,6 +32,8 @@ GET   /witcher	   controllers.HomeController.witcher
 
 GET   /watchdogs	   controllers.HomeController.watchdogs
 
+GET	/purchase	controllers.HomeController.purchase
+
 
 
 # An example controller showing how to use dependency injection
