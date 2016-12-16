@@ -67,7 +67,7 @@
 	</nav>
 
   <h3>Add a new product</h3>
-	
+	<div class ="col-lg-8 col-md-8 col-sm-10 col-xs-12 col-centered">
     @form(action = routes.HomeController.addProductSubmit(), 'class -> "form-horizontal", 'role -> "form"){
     @inputText(addProductForm("name"), '_label -> "Name", 'class -> "form-control")
     @inputText(addProductForm("stock"), '_label -> "Stock", 'class -> "form-control")
@@ -77,11 +77,12 @@
 	
 
     <div class="actions">
-      <input type="submit" value="Add Product" class="btn btn-primary" />
+      <input type="submit" value="Add Product" class="btn btn-success" />
       <a href="@routes.HomeController.index()">
-      <button class="btn btn-warning">Cancel</button>
-      </a>
+      <button class="btn btn-danger">Cancel</button>
+      </a
     </div>
+</div>
 </body>
 </html>
   }
