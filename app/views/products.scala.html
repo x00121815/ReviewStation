@@ -93,23 +93,33 @@
   	     <td class="numeric">&euro; @("%.2f".format(p.getPrice))</td>
 
 	<td>
-		<a href="@routes.HomeController.updateProduct(p.getId)" class="btn-xs btn-danger">
+		<a href="@routes.HomeController.updateProduct(p.getId)" class="btn-xs btn-warning">
 		<span class="glyphicon glyphicon-pencil">Update</span></a>
 	</td>
 
 
 		<td>
-			<a href="@routes.HomeController.deleteProduct(p.getId)" class="btn-xs btn-danger" onclick="return confirmDel();">
+			<a href="@routes.HomeController.deleteProduct(p.getId)" class="btn-xs btn-danger" onclick="return 				confirmDel();">
 			<span class="glyphicon glyphicon-trash"><buttonclass="btn-xs btn-danger">Delete</button></span>
 			</a>
 		</td>
+		
+		
+		<td>
+			<a href="#" class="btn-xs btn-success">
+			<span class="glyphicon glyphicon-eur"><buttonclass="btn-xs btn-success">Purchase</button></span>
+			</a>
+		</td>
+
             </tr>
 	}
           </tbody>
         </table>
 		<p>
 		<a href="@routes.HomeController.addProduct()">
-		<button class="btn btn-success">Add a Product</button>
+		<button class="btn btn-primary">Add a Product</button>
+		<a href="@routes.HomeController.games">
+		<button class="btn btn-danger">Cancel</button>
 		</a>
 		</p>
       </div>
